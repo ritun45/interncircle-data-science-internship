@@ -30,9 +30,12 @@ Data: classic Titanic dataset (891 passengers), public CSV linked in the InternC
 5. Evaluate both on the test set: Accuracy, Confusion Matrix, classification report, and MSE between the true 0/1 labels and the predicted survival probabilities.
 6. Chart the confusion matrix and the Decision Tree feature importances, and save the trained model with joblib.
 
-## Results
+## Results (verified by running the script; test set = 179 passengers)
 
-The exact test-set numbers are printed by the script and written to `outputs/metrics.txt` — run the script to reproduce them. The Decision Tree and Logistic Regression accuracies are compared in the script output, and the feature-importance chart shows which inputs (sex, class, fare, age) the tree relied on most.
+- **Decision Tree (max_depth=5): Accuracy 0.7654, MSE (true labels vs predicted probabilities) 0.1678.** Confusion matrix (rows = actual died/survived, columns = predicted died/survived): [[97, 13], [29, 40]].
+- **Logistic Regression (comparison): Accuracy 0.8045, MSE 0.1450.** Confusion matrix: [[98, 12], [23, 46]].
+- **Feature importances (Decision Tree):** Sex_male 0.531, Pclass 0.180, Age 0.129, Fare 0.114, Embarked_S 0.034, SibSp 0.011, Parch 0.001, Embarked_Q 0.000.
+- So sex was by far the strongest predictor, followed by passenger class, age and fare — the same pattern found in the Project 01 EDA. The exact numbers are also written to `outputs/metrics.txt` when the script runs.
 
 ## Tools used
 
