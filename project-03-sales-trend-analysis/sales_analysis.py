@@ -7,7 +7,8 @@ Run:  python sales_analysis.py
 Data: SIMULATED e-commerce sales data, generated inside this script
       (seed 42). This is NOT real customer data. It is used because the
       project allows generated data when it is clearly labelled as such.
-      5,000 orders, 1,200 customers, 1 Jan 2024 - 31 Dec 2025, in INR.
+      5,000 orders, 1,200 customer IDs (1,177 with at least one order),
+      1 Jan 2024 - 31 Dec 2025, in INR.
       A festive-season uplift (Oct-Dec) is built into the generator and is
       documented below, so the monthly trend has a real pattern to find.
 Outputs: printed analysis, charts in outputs/ and outputs/sales_summary.md.
@@ -180,7 +181,7 @@ def main():
     summary = []
     summary.append("# Sales Trend & Churn Summary (simulated data)")
     summary.append("")
-    summary.append("Data: 5,000 simulated orders, 1,200 customers, Jan 2024-Dec 2025, INR. Generated with seed 42.")
+    summary.append("Data: 5,000 simulated orders, 1,200 customer IDs (1,177 with at least one order), Jan 2024-Dec 2025, INR. Generated with seed 42.")
     summary.append("")
     summary.append(f"Total net revenue: INR {total_revenue:,.0f}")
     summary.append(f"Average order value: INR {df['NetRevenue'].mean():,.0f}")
