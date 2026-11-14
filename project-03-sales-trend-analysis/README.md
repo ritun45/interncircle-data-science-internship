@@ -8,7 +8,7 @@ Perform an end-to-end analysis of an e-commerce sales dataset: find the top cust
 
 ## Important: the data is simulated
 
-No real customer data was available for this project, so the script generates a simulated dataset (seed 42): 5,000 orders from 1,200 customers, 1 January 2024 to 31 December 2025, in INR. The generator, its category price ranges, region mix and festive-season uplift (October-December) are all documented in `sales_analysis.py`. The data is clearly labelled as generated/simulated in the script, in `business_brief.md`, and in the InternCircle submission notes. All findings below are findings about this simulated dataset, not about a real business.
+No real customer data was available for this project, so the script generates a simulated dataset (seed 42): 5,000 orders from 1,200 customer IDs (1,177 of them placed at least one order), 1 January 2024 to 31 December 2025, in INR. The generator, its category price ranges, region mix and festive-season uplift (October-December) are all documented in `sales_analysis.py`. The data is clearly labelled as generated/simulated in the script, in `business_brief.md`, and in the InternCircle submission notes. All findings below are findings about this simulated dataset, not about a real business.
 
 ## Files
 
@@ -32,9 +32,14 @@ python sales_analysis.py
 5. Churn analysis: a customer is Active if their last order was within 90 days of the latest order date, At risk at 91-180 days, and Churned after 180 days with no order.
 6. Save charts and a written summary (`outputs/sales_summary.md`) with the exact totals, best/worst months and churn share.
 
-## Findings
+## Findings (verified by running the script)
 
-The exact figures are in `outputs/sales_summary.md`, produced when the script runs. The analysis answers: which months and categories bring the most revenue, which regions lead, which customer segments are worth the most, and what share of customers has churned.
+- **Totals:** 5,000 orders, 1,177 customers with orders, total net revenue INR 45,058,908.70, average order value INR 9,011.78.
+- **Trend:** best month December 2024 (INR 2,733,896.57); weakest month February 2025 (INR 1,361,344.15). 2024 total INR 22,872,946.67; 2025 total INR 22,185,962.03.
+- **By category:** Electronics INR 23,647,432.74 (1,093 orders); Home & Kitchen INR 9,741,042.89 (1,044); Clothing INR 5,441,767.64 (1,485); Sports INR 4,416,852.88 (639); Beauty INR 1,811,812.55 (739).
+- **By region:** North INR 13,974,669.53 (1,496 orders); South INR 12,620,538.69 (1,400); West INR 10,710,722.96 (1,228); East INR 7,752,977.52 (876).
+- **By segment:** Platinum 236 customers / INR 20,710,369; Gold 443 / INR 17,732,743; Silver 379 / INR 6,109,915; Bronze 119 / INR 505,882.
+- **Churn:** Active 578, At risk 239, Churned 360 (30.6% of customers). Repeat customers (2+ orders): 1,095 of 1,177.
 
 ## Business recommendations
 
